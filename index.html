@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Pratyusha ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Hind+Siliguri:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+*{ margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+
+body {
+  min-height:100vh;
+  background:linear-gradient(135deg,#ffe4ec,#ffd1dc);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  transition: background 1.5s ease-in-out;
+}
+
+.page {
+  display:none;
+  width:100%;
+  height:100vh;
+  justify-content:center;
+  align-items:center;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.page.show { display:flex; }
+
+.card {
+  width:95%;
+  max-width:440px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius:25px;
+  padding: 20px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(255,0,90,.15);
+  z-index: 10;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Scrollbar Styling */
+.card::-webkit-scrollbar { width: 5px; }
+.card::-webkit-scrollbar-thumb { background: #ff4d6d; border-radius: 10px; }
+
+.letter-header {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.translate-btn {
+  padding: 8px 15px;
+  font-size: 14px; /* Made bigger */
+  font-weight: 600;
+  background: #ff4d6d; /* Solid color for visibility */
+  color: #fff;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3);
+}
+
+.letter-content { 
+  text-align: left; 
+  line-height: 1.6; 
+  color: #333; 
+  font-size: 14px; 
+  margin-top: 5px;
+  white-space: pre-wrap;
+}
+
+#bnText { 
+  display: none; 
+  font-family: 'Hind Siliguri', sans-serif; 
+  font-size: 17px; /* Increased font size */
+  line-height: 1.7;
+}
+
+.signature { font-family: 'Great Vibes', cursive; font-size: 28px; color: #ff4d6d; margin-top: 10px; text-align: right; }
+
+.collage-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 15px 0; }
+.polaroid { background: white; padding: 6px 6px 12px 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.3s; }
+.polaroid img { width: 100%; height: 115px; object-fit: cover; }
+.caption-small { font-family: 'Dancing Script', cursive; font-size: 12px; color: #ff4d6d; margin-top: 5px; }
+
+#final.show { background: #0b0101; width: 100vw; height: 100vh; display: flex; flex-direction: column; }
+.rose-final { font-size: 120px; animation: pulseFinal 2.5s infinite; filter: drop-shadow(0 0 20px #ff4d6d); }
+@keyframes pulseFinal { 0%, 100% { transform: scale(1) rotate(-5deg); } 50% { transform: scale(1.1) rotate(5deg); } }
+.final-text { font-size: 2.8rem; margin-top: 20px; font-family: 'Georgia', serif; background: linear-gradient(45deg, #ff4d6d, #ffb703); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 2px; }
+
+input { width: 100%; padding: 12px; border-radius: 20px; border: 2px solid #ffd1dc; outline: none; text-align: center; margin-top: 10px; }
+h2 { color:#ff4d6d; font-family: 'Dancing Script', cursive; font-size: 32px; }
+.main-btn { margin-top:15px; padding: 12px 30px; border: none; border-radius: 30px; font-weight: 600; cursor: pointer; background: #ff4d6d; color: #fff; transition: .3s; }
+.petal { position: fixed; top: -10%; user-select: none; pointer-events: none; z-index: 100; animation: fall linear forwards; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+</style>
+</head>
+
+<body>
+
+<div class="page show" id="lock">
+  <div class="card">
+    <h2>🔐 Secret Lock</h2>
+    <input id="pass" type="password" placeholder="Enter Password">
+    <button class="main-btn" onclick="checkPass()">Unlock 💖</button>
+  </div>
+</div>
+
+<div class="page" id="name">
+  <div class="card">
+    <h2>For Who? 💕</h2>
+    <input id="username" placeholder="Enter her name...">
+    <button class="main-btn" onclick="saveName()">Open My Heart ➜</button>
+  </div>
+</div>
+
+<div class="page" id="letter">
+  <div class="card">
+    <div class="letter-header">
+      <h2 id="letterTitle" style="font-family: 'Dancing Script', cursive;">My Love,</h2>
+      <button onclick="toggleLanguage()" id="langBtn" class="translate-btn">Translate to বাংলা</button>
+    </div>
+    
+    <div class="letter-content" id="mainLetter">
+      <div id="enText">Happy Rose Day,
+My Pratyusha 🌹..
+
+If I could, I’d give you a rose that never fades --> just like my feelings for you. Every petal, Every Pigment would carry a reason why you mean so much to me, and every thorn would remind me that even love has its struggles, but it’s always worth holding onto.
+
+Firstly I gave You A Pink Rose which means 🌸🌹:
+Gentle love
+Sweetness and care
+Admiration
+Happiness 
+Respect ..
+In One Line It means 
+""I like you deeply, I care for you, and you make me happy.""
+
+Giving A Rose Is Not My Way Of Showing Love ...Keeping Like A Rose.. Is My Way Of Showing Love ...The Way Rose needs Care , Warmth ..Although It has Throns ..but it is overwelhemed by the beauty ....So I promise .. I will do it and keep you like a Rose ...
+
+The rose is not just a flower-->It’s my promise. A promise to care for you, to stand by you, to choose you every day, and to love you a little more than yesterday. No matter where life takes us, my heart will always find its way back to you.
+
+Thank you for being you. 
+Thank you for loving me the way you do.
+Thank you for existing in my world..
+Lastly My Wife and Mother of my kidss 
+Thank You For Evrything ❤️
+
+Happy Rose Day, my love.
+Forever yours, always. 🌹❤️
+<div class="signature">— Prayash..</div>
+      </div>
+      
+      <div id="bnText">শুভ রোজ ডে,
+আমার প্রত্যুষা 🌹..
+
+আমি যদি পারতাম, তোমাকে এমন এক গোলাপ দিতাম যা কোনোদিন শুকিয়ে যাবে না—ঠিক তোমার জন্য আমার অনুভূতির মতো।
+
+প্রথমত, আমি তোমাকে একটি গোলাপী গোলাপ দিয়েছি যার অর্থ 🌸🌹:
+কোমল ভালোবাসা, স্নেহ ও যত্ন, শ্রদ্ধা এবং অপার সুখ।
+এক কথায়— ""আমি তোমাকে গভীরভাবে পছন্দ করি, আমি তোমার যত্ন নিই এবং তুমি আমাকে সুখী করো।""
+
+গোলাপ দেওয়া আমার ভালোবাসা প্রকাশের পথ নয়... গোলাপের মতো আগলে রাখাই আমার ভালোবাসার ধরন। গোলাপের যেমন যত্ন ও উষ্ণতার প্রয়োজন হয়, কাঁটা থাকা সত্ত্বেও তার সৌন্দর্য যেমন মুগ্ধ করে... আমি কথা দিচ্ছি, আমি তোমাকে একটি গোলাপের মতোই আগলে রাখবো।
+
+এই গোলাপটি শুধু একটি ফুল নয়—এটি আমার অঙ্গীকার। তোমাকে আগলে রাখার এবং প্রতিদিন তোমাকে বেছে নেওয়ার অঙ্গীকার।
+
+সবকিছুর জন্য তোমাকে ধন্যবাদ ❤️
+
+শুভ রোজ ডে, প্রিয়তমা।
+চিরকাল তোমারই।
+<div class="signature">— প্রয়াশ..</div>
+      </div>
+    </div>
+    <button class="main-btn" onclick="setPage('collage')">See Our Memories ➜</button>
+  </div>
+</div>
+
+<div class="page" id="collage">
+  <div class="card">
+    <h2>Our Memories ✨</h2>
+    <div class="collage-grid">
+      <div class="polaroid" style="transform: rotate(-4deg)"><img src="https://i.ibb.co/ZzhK9vJz/image.jpg"><p class="caption-small">The Best Day ❤️</p></div>
+      <div class="polaroid" style="transform: rotate(3deg)"><img src="https://i.ibb.co/4ZLFcNW7/image.jpg"><p class="caption-small">Pure Joy ✨</p></div>
+      <div class="polaroid" style="transform: rotate(-2deg)"><img src="https://i.ibb.co/DHwxfD3d/image.jpg"><p class="caption-small">My Favorite 🌹</p></div>
+      <div class="polaroid" style="transform: rotate(4deg)"><img src="https://i.ibb.co/wFjCkRbP/image.jpg"><p class="caption-small">Forever 💖</p></div>
+    </div>
+    <button class="main-btn" onclick="setPage('rose')">One More Thing... 🌹</button>
+  </div>
+</div>
+
+<div class="page" id="rose">
+  <div class="card">
+    <div style="font-size:70px; animation:float 3s infinite;">🌹</div>
+    <h2>For You, <span id="nm"></span></h2>
+    <p>Will you accept this rose and be my favorite person forever?</p>
+    <div style="display:flex; gap:15px; justify-content:center;">
+      <button class="main-btn" onclick="finalPage()">YES 😘</button>
+      <button id="noBtn" class="main-btn" onmouseover="moveNo()" style="background: #ffd1dc; color: #ff4d6d;">NO</button>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="final">
+    <div style="text-align: center; z-index: 10;">
+        <div class="rose-final">🌹</div>
+        <h1 class="final-text">Happy Rose Day</h1>
+        <p style="opacity: 0.8; color: white; font-size: 1.1rem; margin-top: 10px;">To My Pratyusha, Forever Yours — Prayash ❤️</p>
+    </div>
+</div>
+
+<script>
+const PASSWORD = "120805";
+let isBengali = false;
+
+function checkPass(){
+  if(document.getElementById("pass").value === PASSWORD) setPage("name");
+  else alert("Wrong password 😝");
+}
+
+function saveName(){
+  const name = document.getElementById("username").value;
+  if(!name) return;
+  document.getElementById("nm").innerText = name;
+  setPage('letter');
+}
+
+function toggleLanguage() {
+  isBengali = !isBengali;
+  document.getElementById("enText").style.display = isBengali ? "none" : "block";
+  document.getElementById("bnText").style.display = isBengali ? "block" : "none";
+  document.getElementById("langBtn").innerText = isBengali ? "Switch to English" : "Translate to বাংলা";
+  document.getElementById("letterTitle").innerText = isBengali ? "আমার ভালোবাসা," : "My Love,";
+}
+
+function moveNo(){
+  const no = document.getElementById("noBtn");
+  no.style.position = "fixed";
+  no.style.left = Math.random() * (window.innerWidth - 100) + "px";
+  no.style.top = Math.random() * (window.innerHeight - 50) + "px";
+}
+
+function finalPage(){
+  document.body.style.background = "#0b0101"; 
+  setPage("final");
+  startFinalPetals();
+}
+
+function setPage(id){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("show"));
+  document.getElementById(id).classList.add("show");
+}
+
+function createPetal(emoji) {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  p.innerHTML = emoji;
+  p.style.left = Math.random() * 100 + 'vw';
+  p.style.fontSize = (Math.random() * 20 + 10) + 'px';
+  p.style.animationDuration = (Math.random() * 3 + 2) + 's';
+  p.style.opacity = Math.random();
+  document.body.appendChild(p);
+  setTimeout(() => p.remove(), 5000);
+}
+
+let petalTimer = setInterval(() => createPetal(Math.random() > 0.5 ? '🌹' : '❤️'), 400);
+
+function startFinalPetals() {
+    clearInterval(petalTimer);
+    setInterval(() => createPetal('🌸'), 300);
+}
+</script>
+
+</body>
+</html>
